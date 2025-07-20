@@ -1,0 +1,36 @@
+# Byte-code files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.komodoproject
+
+# OS generated files
+.DS_Store
+.Trashes
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# Test coverage
+.coverage
+.pytest_cache/
+
+# Distribution / build
+dist/
+build/
+*.egg-info/
