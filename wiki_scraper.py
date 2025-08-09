@@ -16,9 +16,7 @@ def connect_to_wikipedia(url):
         return BeautifulSoup(response.text, "html.parser")  # Parse and return the HTML
     else:
         print(f"Failed to retrieve the page. Status code: {response.status_code}")
-        return None  # Return None if the request fails
-
-# target_headings = ["Future predictions", "Scientific predictions"]
+        return None  # Return None if the request fails j-
 
 def find_h2(soup):
 
@@ -33,9 +31,8 @@ def find_h2(soup):
             next_el = h2.find_next("table", {"class": "wikitable"})
             table_html = StringIO(str(next_el))  # Convert table HTML to string
             df = pd.read_html(table_html)[0]  # Read the HTML table into a DataFrame
+            df.drop('Ref.', axis=1, inplace=True)
             tables.append(df)
-
-            #print(next_el.prettify())
 
     return tables
 
@@ -43,7 +40,3 @@ def get_data():
     soup = connect_to_wikipedia(url)
     prophesies = find_h2(soup)
     return prophesies
-
-# for table in prophesies:
-#     print("="*20)
-#     print(table)
